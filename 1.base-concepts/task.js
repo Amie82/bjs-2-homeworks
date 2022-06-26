@@ -1,35 +1,27 @@
 'use strict';
 let arr = [];
-let finArr = [];
-let a = 1;
-let b = 5;
-let c = 2;
+let discriminant;
+
 function solveEquation(a, b, c) {
   
-  arr = b**2-4*a*c;
-  
-// код для задачи
+  discriminant = b**2-4*a*c;
+  if(discriminant === 0) {
+    arr.push = (-b/(2*a));
+    }
+  else {
+    arr.push = (-b + Math.sqrt(discriminant))/(2*a);
+    arr.push = (-b - Math.sqrt(discriminant) )/(2*a);
+    } //
   return arr; // array
+
 }
 
 
-arr = solveEquation(a, b, c);
-console.log('arr:' + arr);
+solveEquation(2, 7, 4);
+console.log('arr:' + discriminant);
 
 
-if(arr < 0) {
-   console.log('Корней нет, пустой массив:' + arr);
-}
 
-else if(arr === 0) {
-  finArr[0] = (-b/(2*a));
-console.log('Корень один: ' + finArr);
-}
-else {
-  finArr[0] = [(-b + Math.sqrt(arr))/(2*a)];
-  finArr[1] = [(-b - Math.sqrt(arr) )/(2*a)];
-console.log('Больше нуля: ' + finArr);
-}
 
 
 
