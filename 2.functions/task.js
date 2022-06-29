@@ -1,3 +1,4 @@
+'use strict'
 // Задание 1
 function getArrayParams(arr) {
   let min = Infinity;
@@ -12,9 +13,11 @@ function getArrayParams(arr) {
     if(arr[i] < min) {
       min = arr[i];
     }
-     }
+  }
      avg = parseFloat((sum / arr.length).toFixed(2));
-     return { min: min, max: max, avg: avg };
+     return {
+       min: min, max: max, avg: avg 
+     };
 }
 
 
@@ -22,8 +25,7 @@ function getArrayParams(arr) {
 
 
 // Задание 2
-arrOfArr = [[1, 2, 3, 4],
-           [10, 20, -10, -20]];
+
 function worker(arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -33,10 +35,10 @@ function worker(arr) {
   return sum;
 }
 
-function makeWork(arrOfArr, function worker) {
-  let max;
+function makeWork(arrOfArr, func) {
+  let max = -Infinity;
    for (let i = 0; i < arrOfArr.length; i++) {
-    let arrSum = function(arrOfArr[i]);
+    let arrSum = func(arrOfArr[i]);
     if (arrSum > max) {
       max = arrSum;
     }
@@ -49,3 +51,8 @@ function makeWork(arrOfArr, function worker) {
 function worker2(arr) {
   return getArrayParams(arr).max - getArrayParams(arr).min;
 }
+
+// let resultMax = getArrayParams(arr).max;
+// let resultMin = getArrayParams(arr).min;
+// return = resultMax - resultMin;
+
