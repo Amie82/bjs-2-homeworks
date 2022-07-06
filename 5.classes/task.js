@@ -7,14 +7,14 @@ class PrintEditionItem {
     this.state = 100;
     this.type = null;
   }
-}
 
-fix() {
+
+  fix() {
   return this.state *=1.5;
-}
+  }
 
-set state(state) {
-  if(state > 0) {
+  set state(state) {
+  if(state > 100) {
     this._state === 100;
   }
   else if(state < 0) {
@@ -25,9 +25,11 @@ set state(state) {
   }
 }
 
-get state() {
+  get state() {
     return this._state;
+  }
 }
+
 
 class Magazine extends PrintEditionItem {
     constructor(name, releaseDate, pagesCount, state) {
@@ -71,7 +73,8 @@ class Library {
     this.name = name;
     this.book = [];
     }
-}
+  
+
 
 addBook(book) {
   if(book.state > 30) {
@@ -83,15 +86,14 @@ addBook(book) {
 findBookBy(type, value) {
   let fullSearch = this.books.find(book => book[type] === value);
   return (typeof fullSearch === 'object') ? fullSearch : null; 
-}
-
-giveBookByName(bookName) {
-  let lookingBook = this.books.find(book => book.name === bookName);
-  if (typeof lookingBook === 'object') {
-       this.books.splice(this.books.indexOf(lookingBook), 1);
-       return lookingBook;
   }
-  else return null;
+
+  giveBookByName(bookName) {
+    let lookingBook = this.books.find(book => book.name === bookName);
+    if (typeof lookingBook === 'object') {
+       this.books.splice(this.books.indexOf(lookingBook), 1);
+        return lookingBook;
+    }
+    else return null;
+    }
 }
-
-
